@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A small local CRUD task manager built with vanilla HTML, CSS, and JavaScript." />
+    <title>Taskflow | Simple CRUD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="Taskflow home">
+          <span class="brand-mark">+</span>
+          <span>taskflow</span>
+        </a>
+        <span class="header-note">A tiny CRUD lab</span>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Vanilla HTML · CSS · JavaScript</div>
+          <h1>Make space for<br /><em>the next thing.</em></h1>
+          <p class="hero-copy">A focused task list for the little wins that move your day forward. Add, update, complete, and clear tasks in one calm place.</p>
+          <div class="stats" aria-label="Task statistics">
+            <div class="stat"><strong id="total-count">0</strong><span>Total tasks</span></div>
+            <div class="stat"><strong id="open-count">0</strong><span>In progress</span></div>
+            <div class="stat"><strong id="done-count">0</strong><span>Completed</span></div>
+          </div>
+        </section>
+
+        <section class="workspace" aria-label="Task manager">
+          <div class="panel form-panel">
+            <div class="panel-heading">
+              <div>
+                <span class="section-label">01 / create</span>
+                <h2>Add a task</h2>
+              </div>
+              <span class="plus-circle">+</span>
+            </div>
+            <form id="task-form">
+              <label for="task-title">What needs doing?</label>
+              <input id="task-title" name="title" type="text" maxlength="80" placeholder="e.g. Outline the landing page" required />
+              <label for="task-category">Category</label>
+              <select id="task-category" name="category">
+                <option>Work</option>
+                <option>Personal</option>
+                <option>Learning</option>
+                <option>Wellness</option>
+              </select>
+              <button class="button button-primary" type="submit">Create task <span>→</span></button>
+            </form>
+            <p class="form-hint">Your tasks stay in this browser using localStorage.</p>
+          </div>
+
+          <div class="panel list-panel">
+            <div class="list-toolbar">
+              <div>
+                <span class="section-label">02 / read & manage</span>
+                <h2>Your tasks <span id="visible-count" class="count-badge">0</span></h2>
+              </div>
+              <div class="filter-wrap">
+                <label class="sr-only" for="task-filter">Filter tasks</label>
+                <select id="task-filter">
+                  <option value="all">All tasks</option>
+                  <option value="open">In progress</option>
+                  <option value="done">Completed</option>
+                </select>
+              </div>
+            </div>
+            <div id="task-list" class="task-list" aria-live="polite"></div>
+            <div id="empty-state" class="empty-state" hidden>
+              <div class="empty-icon">✦</div>
+              <h3>Nothing here yet</h3>
+              <p>Create your first task and give it a home.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="crud-strip" aria-label="CRUD operations">
+          <div><span class="crud-letter">C</span><span>Create</span><small>Add a fresh task</small></div>
+          <div><span class="crud-letter">R</span><span>Read</span><small>See what is next</small></div>
+          <div><span class="crud-letter">U</span><span>Update</span><small>Mark progress</small></div>
+          <div><span class="crud-letter">D</span><span>Delete</span><small>Clear the clutter</small></div>
+        </section>
+      </main>
+
+      <footer class="site-footer"><span>Built for small steps.</span><span>Taskflow / 2026</span></footer>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
